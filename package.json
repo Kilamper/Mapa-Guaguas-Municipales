@@ -10,7 +10,9 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.21.0",
+    "@netlify/functions": "^4.2.5",
+    "express": "^4.21.2",
+    "serverless-http": "^4.0.0",
     "three": "^0.170.0"
   },
   "engines": {
