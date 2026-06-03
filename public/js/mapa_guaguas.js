@@ -401,7 +401,9 @@ function fetchData(filename, callback) {
 
 function procesarCSVStops(content) {
   const parsedStops = parseCSVStops(content);
-  datosStops.push(...parsedStops);
+  for (let i = 0; i < parsedStops.length; i++) {
+    datosStops.push(parsedStops[i]);
+  }
 
   parsedStops.forEach(stop => {
     let mlon = MapeoX(stop.lon);
@@ -423,7 +425,9 @@ function procesarCSVStops(content) {
 
 function procesarCSVShapes(content) {
   const { datosShapes: parsedShapes, rutas } = parseCSVShapes(content);
-  datosShapes.push(...parsedShapes);
+  for (let i = 0; i < parsedShapes.length; i++) {
+    datosShapes.push(parsedShapes[i]);
+  }
 
   for (const shape_id in rutas) {
     const points = rutas[shape_id].map((p) => {
@@ -438,18 +442,24 @@ function procesarCSVShapes(content) {
 
 function procesarCSVTrips(content) {
   const parsedTrips = parseCSVTrips(content);
-  datosTrips.push(...parsedTrips);
+  for (let i = 0; i < parsedTrips.length; i++) {
+    datosTrips.push(parsedTrips[i]);
+  }
 }
 
 function procesarCSVRoutes(content) {
   const parsedRoutes = parseCSVRoutes(content);
-  datosRoutes.push(...parsedRoutes);
+  for (let i = 0; i < parsedRoutes.length; i++) {
+    datosRoutes.push(parsedRoutes[i]);
+  }
   populateRouteSelect();
 }
 
 function procesarCSVStopTimes(content) {
   const parsedTimes = parseCSVStopTimes(content);
-  datosStopTimes.push(...parsedTimes);
+  for (let i = 0; i < parsedTimes.length; i++) {
+    datosStopTimes.push(parsedTimes[i]);
+  }
   checkAndStartTrips();
 }
 
